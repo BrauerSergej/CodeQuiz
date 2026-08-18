@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="005-create-table-questions" author="Sergej Brauer">
+
+        <createTable tableName="questions">
+
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"
+                             nullable="false"/>
+            </column>
+
+            <column name="question_text" type="text">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="explanation" type="text"/>
+
+            <column name="difficulty" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="question_type" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="code_snippet" type="text"/>
+
+            <column name="code_language" type="varchar(30)"/>
+
+            <column name="topic_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="active"
+                    type="boolean"
+                    defaultValueBoolean="true">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_at"
+                    type="timestamp"
+                    defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="updated_at"
+                    type="timestamp"
+                    defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>

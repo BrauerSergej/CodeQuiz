@@ -1,0 +1,498 @@
+2026-08-18T19:43:57.123+02:00  INFO 17356 --- [code_quiz] [main] dev.codequiz.CodequizApplication         : Starting CodequizApplication using Java 21.0.12 with PID 17356 (C:\IdeaProjects\Project-CodeQuiz\codequiz\backend\target\classes started by bmw73 in C:\IdeaProjects\Project-CodeQuiz\codequiz\backend)
+2026-08-18T19:43:57.130+02:00  INFO 17356 --- [code_quiz] [main] dev.codequiz.CodequizApplication         : The following 1 profile is active: "local"
+2026-08-18T19:43:57.639+02:00  INFO 17356 --- [code_quiz] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-18T19:43:57.660+02:00  INFO 17356 --- [code_quiz] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+2026-08-18T19:43:58.160+02:00  INFO 17356 --- [code_quiz] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-08-18T19:43:58.175+02:00  INFO 17356 --- [code_quiz] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-18T19:43:58.176+02:00  INFO 17356 --- [code_quiz] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18T19:43:58.236+02:00  INFO 17356 --- [code_quiz] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1068 ms
+2026-08-18T19:43:58.373+02:00  INFO 17356 --- [code_quiz] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-18T19:43:58.543+02:00  INFO 17356 --- [code_quiz] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@64ae105d
+2026-08-18T19:43:58.544+02:00  INFO 17356 --- [code_quiz] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-18T19:43:58.694+02:00  INFO 17356 --- [code_quiz] [main] liquibase.database                       : Set default schema name to public
+2026-08-18T19:43:59.914+02:00  INFO 17356 --- [code_quiz] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2026-08-18T19:44:00.112+02:00  INFO 17356 --- [code_quiz] [main] liquibase.changelog                      : Change failed validation!
+2026-08-18T19:44:00.114+02:00  INFO 17356 --- [code_quiz] [main] liquibase.command                        : Logging exception.
+2026-08-18T19:44:00.114+02:00  INFO 17356 --- [code_quiz] [main] liquibase.ui                             : ERROR: Exception Details
+2026-08-18T19:44:00.114+02:00  INFO 17356 --- [code_quiz] [main] liquibase.ui                             : ERROR: Exception Primary Class:  ValidationFailedException
+2026-08-18T19:44:00.115+02:00  INFO 17356 --- [code_quiz] [main] liquibase.ui                             : ERROR: Exception Primary Reason:  Validation Failed:
+     1 changesets had duplicate identifiers
+          db/changelog/v.0.1.0/001-create-table-account.xml::001-create-table-account::Sergej Brauer
+
+2026-08-18T19:44:00.115+02:00  INFO 17356 --- [code_quiz] [main] liquibase.ui                             : ERROR: Exception Primary Source:  5.0.3
+2026-08-18T19:44:00.115+02:00  INFO 17356 --- [code_quiz] [main] liquibase.command                        : Command execution complete
+2026-08-18T19:44:00.116+02:00  WARN 17356 --- [code_quiz] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/liquibase/autoconfigure/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
+     1 changesets had duplicate identifiers
+          db/changelog/v.0.1.0/001-create-table-account.xml::001-create-table-account::Sergej Brauer
+
+2026-08-18T19:44:00.116+02:00  INFO 17356 --- [code_quiz] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-18T19:44:00.118+02:00  INFO 17356 --- [code_quiz] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-18T19:44:00.123+02:00  INFO 17356 --- [code_quiz] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-08-18T19:44:00.136+02:00  INFO 17356 --- [code_quiz] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-08-18T19:44:00.153+02:00 ERROR 17356 --- [code_quiz] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/liquibase/autoconfigure/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
+     1 changesets had duplicate identifiers
+          db/changelog/v.0.1.0/001-create-table-account.xml::001-create-table-account::Sergej Brauer
+
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at dev.codequiz.CodequizApplication.main(CodequizApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/liquibase/autoconfigure/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
+     1 changesets had duplicate identifiers
+          db/changelog/v.0.1.0/001-create-table-account.xml::001-create-table-account::Sergej Brauer
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1815) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:309) ~[spring-beans-7.0.8.jar:7.0.8]
+	... 10 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
+     1 changesets had duplicate identifiers
+          db/changelog/v.0.1.0/001-create-table-account.xml::001-create-table-account::Sergej Brauer
+
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:289) ~[liquibase-core-5.0.3.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811) ~[spring-beans-7.0.8.jar:7.0.8]
+	... 17 common frames omitted
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ValidationFailedException: Validation Failed:
+     1 changesets had duplicate identifiers
+          db/changelog/v.0.1.0/001-create-table-account.xml::001-create-table-account::Sergej Brauer
+
+	at liquibase.command.CommandScope.lambda$execute$5(CommandScope.java:325) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:252) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:228) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.command.CommandScope.execute(CommandScope.java:257) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:243) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:252) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:242) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:221) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Liquibase.runInScope(Liquibase.java:1366) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:205) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:188) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:327) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:279) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:243) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:252) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:242) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:221) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:272) ~[liquibase-core-5.0.3.jar:na]
+	... 19 common frames omitted
+Caused by: liquibase.exception.ValidationFailedException: Validation Failed:
+     1 changesets had duplicate identifiers
+          db/changelog/v.0.1.0/001-create-table-account.xml::001-create-table-account::Sergej Brauer
+
+	at liquibase.changelog.DatabaseChangeLog.validate(DatabaseChangeLog.java:392) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:89) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.command.CommandScope.lambda$execute$5(CommandScope.java:269) ~[liquibase-core-5.0.3.jar:na]
+	... 37 common frames omitted
+
+2026-08-18T19:47:43.209+02:00  INFO 15028 --- [code_quiz] [main] dev.codequiz.CodequizApplication         : Starting CodequizApplication using Java 21.0.12 with PID 15028 (C:\IdeaProjects\Project-CodeQuiz\codequiz\backend\target\classes started by bmw73 in C:\IdeaProjects\Project-CodeQuiz\codequiz\backend)
+2026-08-18T19:47:43.212+02:00  INFO 15028 --- [code_quiz] [main] dev.codequiz.CodequizApplication         : The following 1 profile is active: "local"
+2026-08-18T19:47:43.712+02:00  INFO 15028 --- [code_quiz] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-18T19:47:43.729+02:00  INFO 15028 --- [code_quiz] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2026-08-18T19:47:44.094+02:00  INFO 15028 --- [code_quiz] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-08-18T19:47:44.108+02:00  INFO 15028 --- [code_quiz] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-18T19:47:44.108+02:00  INFO 15028 --- [code_quiz] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18T19:47:44.173+02:00  INFO 15028 --- [code_quiz] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 920 ms
+2026-08-18T19:47:44.282+02:00  INFO 15028 --- [code_quiz] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-18T19:47:44.431+02:00  INFO 15028 --- [code_quiz] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2b44d6d0
+2026-08-18T19:47:44.433+02:00  INFO 15028 --- [code_quiz] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-18T19:47:44.554+02:00  INFO 15028 --- [code_quiz] [main] liquibase.database                       : Set default schema name to public
+2026-08-18T19:47:45.447+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2026-08-18T19:47:45.681+02:00  INFO 15028 --- [code_quiz] [main] liquibase.lockservice                    : Successfully acquired change log lock
+2026-08-18T19:47:45.682+02:00  INFO 15028 --- [code_quiz] [main] liquibase.command                        : Using deploymentId: 7075264269
+2026-08-18T19:47:45.683+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2026-08-18T19:47:45.711+02:00  INFO 15028 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/001-create-table-account.xml::001-create-table-account::Sergej Brauer
+2026-08-18T19:47:45.731+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : Table account created
+2026-08-18T19:47:45.734+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/001-create-table-account.xml::001-create-table-account::Sergej Brauer ran successfully in 21ms
+2026-08-18T19:47:45.740+02:00  INFO 15028 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/003-create-table-categories.xml::003-create-table-categories::Sergej Brauer
+2026-08-18T19:47:45.748+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : Table categories created
+2026-08-18T19:47:45.749+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/003-create-table-categories.xml::003-create-table-categories::Sergej Brauer ran successfully in 9ms
+2026-08-18T19:47:45.751+02:00  INFO 15028 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/004-create-table-topics.xml::004-create-table-topics::Sergej Brauer
+2026-08-18T19:47:45.759+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : Table topics created
+2026-08-18T19:47:45.760+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/004-create-table-topics.xml::004-create-table-topics::Sergej Brauer ran successfully in 8ms
+2026-08-18T19:47:45.762+02:00  INFO 15028 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/005-create-table-questions.xml::005-create-table-questions::Sergej Brauer
+2026-08-18T19:47:45.770+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : Table questions created
+2026-08-18T19:47:45.771+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/005-create-table-questions.xml::005-create-table-questions::Sergej Brauer ran successfully in 8ms
+2026-08-18T19:47:45.774+02:00  INFO 15028 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/006-create-table-answers.xml::006-create-table-answers::Sergej Brauer
+2026-08-18T19:47:45.780+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : Table answers created
+2026-08-18T19:47:45.782+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/006-create-table-answers.xml::006-create-table-answers::Sergej Brauer ran successfully in 8ms
+2026-08-18T19:47:45.784+02:00  INFO 15028 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/007-create-table-quiz-attempts.xml::007-create-table-quiz-attempts::Sergej Brauer
+2026-08-18T19:47:45.789+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : Table quiz_attempts created
+2026-08-18T19:47:45.790+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/007-create-table-quiz-attempts.xml::007-create-table-quiz-attempts::Sergej Brauer ran successfully in 6ms
+2026-08-18T19:47:45.792+02:00  INFO 15028 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/008-create-table-user-answers.xml::008-create-table-user-answers::Sergej Brauer
+2026-08-18T19:47:45.798+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : Table user_answers created
+2026-08-18T19:47:45.800+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/008-create-table-user-answers.xml::008-create-table-user-answers::Sergej Brauer ran successfully in 7ms
+2026-08-18T19:47:45.803+02:00  INFO 15028 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/009-create-table-user-answers-selections.xml::009-create-table-user-answer-selections::Sergej Brauer
+2026-08-18T19:47:45.808+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : Table user_answer_selections created
+2026-08-18T19:47:45.809+02:00  INFO 15028 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/009-create-table-user-answers-selections.xml::009-create-table-user-answer-selections::Sergej Brauer ran successfully in 6ms
+2026-08-18T19:47:45.811+02:00  INFO 15028 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/010-add-fk-confirmation-code-account.xml::010-add-fk-confirmation-code-account::Sergej Brauer
+2026-08-18T19:47:45.815+02:00 ERROR 15028 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/010-add-fk-confirmation-code-account.xml::010-add-fk-confirmation-code-account::Sergej Brauer encountered an exception.
+
+liquibase.exception.DatabaseException: ERROR: relation "public.confirmation_code" does not exist [Failed SQL: (0) ALTER TABLE public.confirmation_code ADD CONSTRAINT fk_confirmation_code_account FOREIGN KEY (account_id) REFERENCES public.account (id)]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:525) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:85) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:188) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:148) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1198) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:860) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:127) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:71) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.changelog.ChangeLogIterator.lambda$run$0(ChangeLogIterator.java:133) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:243) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:252) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:242) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:221) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.changelog.ChangeLogIterator.lambda$run$1(ChangeLogIterator.java:122) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:243) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:252) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:242) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:221) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:309) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:313) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:91) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$1(AbstractUpdateCommandStep.java:122) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:243) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:252) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:242) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:221) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:120) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:100) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.command.CommandScope.lambda$execute$5(CommandScope.java:269) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:252) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:228) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.command.CommandScope.execute(CommandScope.java:257) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:243) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:252) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:242) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:221) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Liquibase.runInScope(Liquibase.java:1366) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:205) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:188) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:327) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:279) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:243) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:252) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:242) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:221) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:272) ~[liquibase-core-5.0.3.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:309) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at dev.codequiz.CodequizApplication.main(CodequizApplication.java:10) ~[classes/:na]
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "public.confirmation_code" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:315) ~[postgresql-42.7.11.jar:42.7.11]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:517) ~[liquibase-core-5.0.3.jar:na]
+	... 65 common frames omitted
+
+2026-08-18T19:47:45.824+02:00  INFO 15028 --- [code_quiz] [main] liquibase.util                           : UPDATE SUMMARY
+2026-08-18T19:47:45.825+02:00  INFO 15028 --- [code_quiz] [main] liquibase.util                           : Run:                          8
+2026-08-18T19:47:45.825+02:00  INFO 15028 --- [code_quiz] [main] liquibase.util                           : Previously run:               0
+2026-08-18T19:47:45.825+02:00  INFO 15028 --- [code_quiz] [main] liquibase.util                           : Filtered out:                 0
+2026-08-18T19:47:45.825+02:00  INFO 15028 --- [code_quiz] [main] liquibase.util                           : -------------------------------
+2026-08-18T19:47:45.825+02:00  INFO 15028 --- [code_quiz] [main] liquibase.util                           : Total change sets:           20
+2026-08-18T19:47:45.826+02:00  INFO 15028 --- [code_quiz] [main] liquibase.util                           : Update summary generated
+2026-08-18T19:47:45.829+02:00  INFO 15028 --- [code_quiz] [main] liquibase.command                        : Update command encountered an exception.
+2026-08-18T19:47:45.831+02:00  INFO 15028 --- [code_quiz] [main] liquibase.lockservice                    : Successfully released change log lock
+2026-08-18T19:47:45.833+02:00  INFO 15028 --- [code_quiz] [main] liquibase.command                        : Logging exception.
+2026-08-18T19:47:45.833+02:00  INFO 15028 --- [code_quiz] [main] liquibase.ui                             : ERROR: Exception Details
+2026-08-18T19:47:45.833+02:00  INFO 15028 --- [code_quiz] [main] liquibase.ui                             : ERROR: Exception Primary Class:  PSQLException
+2026-08-18T19:47:45.833+02:00  INFO 15028 --- [code_quiz] [main] liquibase.ui                             : ERROR: Exception Primary Reason:  ERROR: relation "public.confirmation_code" does not exist
+2026-08-18T19:47:45.833+02:00  INFO 15028 --- [code_quiz] [main] liquibase.ui                             : ERROR: Exception Primary Source:  PostgreSQL 18.1
+2026-08-18T19:47:45.833+02:00  INFO 15028 --- [code_quiz] [main] liquibase.command                        : Command execution complete
+2026-08-18T19:47:45.835+02:00  WARN 15028 --- [code_quiz] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/liquibase/autoconfigure/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.0.1.0/010-add-fk-confirmation-code-account.xml::010-add-fk-confirmation-code-account::Sergej Brauer:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "public.confirmation_code" does not exist [Failed SQL: (0) ALTER TABLE public.confirmation_code ADD CONSTRAINT fk_confirmation_code_account FOREIGN KEY (account_id) REFERENCES public.account (id)]
+2026-08-18T19:47:45.836+02:00  INFO 15028 --- [code_quiz] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-18T19:47:45.838+02:00  INFO 15028 --- [code_quiz] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-18T19:47:45.842+02:00  INFO 15028 --- [code_quiz] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-08-18T19:47:45.852+02:00  INFO 15028 --- [code_quiz] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-08-18T19:47:45.865+02:00 ERROR 15028 --- [code_quiz] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/liquibase/autoconfigure/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.0.1.0/010-add-fk-confirmation-code-account.xml::010-add-fk-confirmation-code-account::Sergej Brauer:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "public.confirmation_code" does not exist [Failed SQL: (0) ALTER TABLE public.confirmation_code ADD CONSTRAINT fk_confirmation_code_account FOREIGN KEY (account_id) REFERENCES public.account (id)]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at dev.codequiz.CodequizApplication.main(CodequizApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/liquibase/autoconfigure/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.0.1.0/010-add-fk-confirmation-code-account.xml::010-add-fk-confirmation-code-account::Sergej Brauer:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "public.confirmation_code" does not exist [Failed SQL: (0) ALTER TABLE public.confirmation_code ADD CONSTRAINT fk_confirmation_code_account FOREIGN KEY (account_id) REFERENCES public.account (id)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1815) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:309) ~[spring-beans-7.0.8.jar:7.0.8]
+	... 10 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.0.1.0/010-add-fk-confirmation-code-account.xml::010-add-fk-confirmation-code-account::Sergej Brauer:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "public.confirmation_code" does not exist [Failed SQL: (0) ALTER TABLE public.confirmation_code ADD CONSTRAINT fk_confirmation_code_account FOREIGN KEY (account_id) REFERENCES public.account (id)]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:289) ~[liquibase-core-5.0.3.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811) ~[spring-beans-7.0.8.jar:7.0.8]
+	... 17 common frames omitted
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.0.1.0/010-add-fk-confirmation-code-account.xml::010-add-fk-confirmation-code-account::Sergej Brauer:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "public.confirmation_code" does not exist [Failed SQL: (0) ALTER TABLE public.confirmation_code ADD CONSTRAINT fk_confirmation_code_account FOREIGN KEY (account_id) REFERENCES public.account (id)]
+	at liquibase.command.CommandScope.lambda$execute$5(CommandScope.java:325) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:252) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:228) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.command.CommandScope.execute(CommandScope.java:257) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:243) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:252) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:242) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:221) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Liquibase.runInScope(Liquibase.java:1366) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:205) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:188) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:327) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:279) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:243) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:252) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:242) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:221) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:272) ~[liquibase-core-5.0.3.jar:na]
+	... 19 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.0.1.0/010-add-fk-confirmation-code-account.xml::010-add-fk-confirmation-code-account::Sergej Brauer:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "public.confirmation_code" does not exist [Failed SQL: (0) ALTER TABLE public.confirmation_code ADD CONSTRAINT fk_confirmation_code_account FOREIGN KEY (account_id) REFERENCES public.account (id)]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:155) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$1(AbstractUpdateCommandStep.java:122) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:243) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:252) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:242) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:221) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:120) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:100) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.command.CommandScope.lambda$execute$5(CommandScope.java:269) ~[liquibase-core-5.0.3.jar:na]
+	... 37 common frames omitted
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.0.1.0/010-add-fk-confirmation-code-account.xml::010-add-fk-confirmation-code-account::Sergej Brauer:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "public.confirmation_code" does not exist [Failed SQL: (0) ALTER TABLE public.confirmation_code ADD CONSTRAINT fk_confirmation_code_account FOREIGN KEY (account_id) REFERENCES public.account (id)]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:918) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:127) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:71) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.changelog.ChangeLogIterator.lambda$run$0(ChangeLogIterator.java:133) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:243) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:252) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:242) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:221) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.changelog.ChangeLogIterator.lambda$run$1(ChangeLogIterator.java:122) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:243) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:252) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:242) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:221) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:309) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.Scope.child(Scope.java:313) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:91) ~[liquibase-core-5.0.3.jar:na]
+	... 45 common frames omitted
+Caused by: liquibase.exception.DatabaseException: ERROR: relation "public.confirmation_code" does not exist [Failed SQL: (0) ALTER TABLE public.confirmation_code ADD CONSTRAINT fk_confirmation_code_account FOREIGN KEY (account_id) REFERENCES public.account (id)]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:525) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:85) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:188) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:148) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1198) ~[liquibase-core-5.0.3.jar:na]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:860) ~[liquibase-core-5.0.3.jar:na]
+	... 60 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "public.confirmation_code" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320) ~[postgresql-42.7.11.jar:42.7.11]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:315) ~[postgresql-42.7.11.jar:42.7.11]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:517) ~[liquibase-core-5.0.3.jar:na]
+	... 65 common frames omitted
+
+2026-08-18T19:50:03.006+02:00  INFO 26272 --- [code_quiz] [main] dev.codequiz.CodequizApplication         : Starting CodequizApplication using Java 21.0.12 with PID 26272 (C:\IdeaProjects\Project-CodeQuiz\codequiz\backend\target\classes started by bmw73 in C:\IdeaProjects\Project-CodeQuiz\codequiz\backend)
+2026-08-18T19:50:03.009+02:00  INFO 26272 --- [code_quiz] [main] dev.codequiz.CodequizApplication         : The following 1 profile is active: "local"
+2026-08-18T19:50:03.500+02:00  INFO 26272 --- [code_quiz] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-18T19:50:03.517+02:00  INFO 26272 --- [code_quiz] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+2026-08-18T19:50:03.927+02:00  INFO 26272 --- [code_quiz] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-08-18T19:50:03.942+02:00  INFO 26272 --- [code_quiz] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-18T19:50:03.942+02:00  INFO 26272 --- [code_quiz] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18T19:50:03.999+02:00  INFO 26272 --- [code_quiz] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 951 ms
+2026-08-18T19:50:04.111+02:00  INFO 26272 --- [code_quiz] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-18T19:50:04.260+02:00  INFO 26272 --- [code_quiz] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@160e99e0
+2026-08-18T19:50:04.262+02:00  INFO 26272 --- [code_quiz] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-18T19:50:04.383+02:00  INFO 26272 --- [code_quiz] [main] liquibase.database                       : Set default schema name to public
+2026-08-18T19:50:05.331+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2026-08-18T19:50:05.580+02:00  INFO 26272 --- [code_quiz] [main] liquibase.lockservice                    : Successfully acquired change log lock
+2026-08-18T19:50:05.581+02:00  INFO 26272 --- [code_quiz] [main] liquibase.command                        : Using deploymentId: 7075404098
+2026-08-18T19:50:05.582+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2026-08-18T19:50:05.592+02:00  INFO 26272 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/002-create-table-confirmation-code.xml::002-create-table-confirmation-code::Sergej Brauer
+2026-08-18T19:50:05.602+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : Table confirmation_code created
+2026-08-18T19:50:05.604+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/002-create-table-confirmation-code.xml::002-create-table-confirmation-code::Sergej Brauer ran successfully in 10ms
+2026-08-18T19:50:05.611+02:00  INFO 26272 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/010-add-fk-confirmation-code-account.xml::010-add-fk-confirmation-code-account::Sergej Brauer
+2026-08-18T19:50:05.617+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : Foreign key constraint added to confirmation_code (account_id)
+2026-08-18T19:50:05.618+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/010-add-fk-confirmation-code-account.xml::010-add-fk-confirmation-code-account::Sergej Brauer ran successfully in 7ms
+2026-08-18T19:50:05.621+02:00  INFO 26272 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/011-add-fk-topics-category.xml::011-add-fk-topics-category::Sergej Brauer
+2026-08-18T19:50:05.623+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : Foreign key constraint added to topics (category_id)
+2026-08-18T19:50:05.624+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/011-add-fk-topics-category.xml::011-add-fk-topics-category::Sergej Brauer ran successfully in 3ms
+2026-08-18T19:50:05.626+02:00  INFO 26272 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/012-add-fk-questions-topic.xml::012-add-fk-questions-topic::Sergej Brauer
+2026-08-18T19:50:05.628+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : Foreign key constraint added to questions (topic_id)
+2026-08-18T19:50:05.629+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/012-add-fk-questions-topic.xml::012-add-fk-questions-topic::Sergej Brauer ran successfully in 3ms
+2026-08-18T19:50:05.632+02:00  INFO 26272 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/013-add-fk-answers-question.xml::013-add-fk-answers-question::Sergej Brauer
+2026-08-18T19:50:05.635+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : Foreign key constraint added to answers (question_id)
+2026-08-18T19:50:05.636+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/013-add-fk-answers-question.xml::013-add-fk-answers-question::Sergej Brauer ran successfully in 2ms
+2026-08-18T19:50:05.637+02:00  INFO 26272 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/014-add-fk-quiz-attempts-account.xml::014-add-fk-quiz-attempts-account::Sergej Brauer
+2026-08-18T19:50:05.639+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : Foreign key constraint added to quiz_attempts (account_id)
+2026-08-18T19:50:05.640+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/014-add-fk-quiz-attempts-account.xml::014-add-fk-quiz-attempts-account::Sergej Brauer ran successfully in 3ms
+2026-08-18T19:50:05.641+02:00  INFO 26272 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/015-add-fk-quiz-attempts-topic.xml::015-add-fk-quiz-attempts-topic::Sergej Brauer
+2026-08-18T19:50:05.644+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : Foreign key constraint added to quiz_attempts (topic_id)
+2026-08-18T19:50:05.645+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/015-add-fk-quiz-attempts-topic.xml::015-add-fk-quiz-attempts-topic::Sergej Brauer ran successfully in 3ms
+2026-08-18T19:50:05.647+02:00  INFO 26272 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/016-add-fk-user-answers-quiz-attempt.xml::016-add-fk-user-answers-quiz-attempt::Sergej Brauer
+2026-08-18T19:50:05.649+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : Foreign key constraint added to user_answers (quiz_attempt_id)
+2026-08-18T19:50:05.649+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/016-add-fk-user-answers-quiz-attempt.xml::016-add-fk-user-answers-quiz-attempt::Sergej Brauer ran successfully in 2ms
+2026-08-18T19:50:05.651+02:00  INFO 26272 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/017-add-fk-user-answers-question.xml::017-add-fk-user-answers-question::Sergej Brauer
+2026-08-18T19:50:05.653+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : Foreign key constraint added to user_answers (question_id)
+2026-08-18T19:50:05.654+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/017-add-fk-user-answers-question.xml::017-add-fk-user-answers-question::Sergej Brauer ran successfully in 3ms
+2026-08-18T19:50:05.656+02:00  INFO 26272 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/018-add-fk-user-answer-selections-user-answer.xml::018-add-fk-user-answer-selections-user-answer::Sergej Brauer
+2026-08-18T19:50:05.658+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : Foreign key constraint added to user_answer_selections (user_answer_id)
+2026-08-18T19:50:05.659+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/018-add-fk-user-answer-selections-user-answer.xml::018-add-fk-user-answer-selections-user-answer::Sergej Brauer ran successfully in 2ms
+2026-08-18T19:50:05.661+02:00  INFO 26272 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/019-add-fk-user-answer-selections-answer.xml::019-add-fk-user-answer-selections-answer::Sergej Brauer
+2026-08-18T19:50:05.663+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : Foreign key constraint added to user_answer_selections (answer_id)
+2026-08-18T19:50:05.663+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/019-add-fk-user-answer-selections-answer.xml::019-add-fk-user-answer-selections-answer::Sergej Brauer ran successfully in 2ms
+2026-08-18T19:50:05.665+02:00  INFO 26272 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/020-add-unique-user-answers.xml::020-add-unique-user-answers::Sergej Brauer
+2026-08-18T19:50:05.668+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : Unique constraint added to user_answers(quiz_attempt_id, question_id)
+2026-08-18T19:50:05.669+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/020-add-unique-user-answers.xml::020-add-unique-user-answers::Sergej Brauer ran successfully in 4ms
+2026-08-18T19:50:05.670+02:00  INFO 26272 --- [code_quiz] [main] liquibase.ui                             : Running Changeset: db/changelog/v.0.1.0/021-add-unique-user-answer-selections.xml::021-add-unique-user-answer-selections::Sergej Brauer
+2026-08-18T19:50:05.673+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : Unique constraint added to user_answer_selections(user_answer_id, answer_id)
+2026-08-18T19:50:05.673+02:00  INFO 26272 --- [code_quiz] [main] liquibase.changelog                      : ChangeSet db/changelog/v.0.1.0/021-add-unique-user-answer-selections.xml::021-add-unique-user-answer-selections::Sergej Brauer ran successfully in 2ms
+2026-08-18T19:50:05.680+02:00  INFO 26272 --- [code_quiz] [main] liquibase.util                           : UPDATE SUMMARY
+2026-08-18T19:50:05.680+02:00  INFO 26272 --- [code_quiz] [main] liquibase.util                           : Run:                         13
+2026-08-18T19:50:05.680+02:00  INFO 26272 --- [code_quiz] [main] liquibase.util                           : Previously run:               8
+2026-08-18T19:50:05.680+02:00  INFO 26272 --- [code_quiz] [main] liquibase.util                           : Filtered out:                 0
+2026-08-18T19:50:05.680+02:00  INFO 26272 --- [code_quiz] [main] liquibase.util                           : -------------------------------
+2026-08-18T19:50:05.680+02:00  INFO 26272 --- [code_quiz] [main] liquibase.util                           : Total change sets:           21
+2026-08-18T19:50:05.681+02:00  INFO 26272 --- [code_quiz] [main] liquibase.util                           : Update summary generated
+2026-08-18T19:50:05.682+02:00  INFO 26272 --- [code_quiz] [main] liquibase.command                        : Update command completed successfully.
+2026-08-18T19:50:05.682+02:00  INFO 26272 --- [code_quiz] [main] liquibase.ui                             : Liquibase: Update has been successful. Rows affected: 0
+2026-08-18T19:50:05.686+02:00  INFO 26272 --- [code_quiz] [main] liquibase.lockservice                    : Successfully released change log lock
+2026-08-18T19:50:05.687+02:00  INFO 26272 --- [code_quiz] [main] liquibase.command                        : Command execution complete
+2026-08-18T19:50:05.769+02:00  INFO 26272 --- [code_quiz] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-18T19:50:05.850+02:00  INFO 26272 --- [code_quiz] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-18T19:50:06.308+02:00  INFO 26272 --- [code_quiz] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-18T19:50:06.396+02:00  INFO 26272 --- [code_quiz] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/code_quiz]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.1
+	Default catalog/schema: code_quiz/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-18T19:50:06.815+02:00  INFO 26272 --- [code_quiz] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-18T19:50:06.825+02:00  INFO 26272 --- [code_quiz] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-18T19:50:06.866+02:00  WARN 26272 --- [code_quiz] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-18T19:50:07.159+02:00  INFO 26272 --- [code_quiz] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-08-18T19:50:07.163+02:00  INFO 26272 --- [code_quiz] [main] dev.codequiz.CodequizApplication         : Started CodequizApplication in 4.607 seconds (process running for 5.075)
+2026-08-18T19:52:04.242+02:00  INFO 26272 --- [code_quiz] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-18T19:52:04.248+02:00  INFO 26272 --- [code_quiz] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-08-18T19:52:04.250+02:00  INFO 26272 --- [code_quiz] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-18T19:52:04.253+02:00  INFO 26272 --- [code_quiz] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-18T19:52:04.255+02:00  INFO 26272 --- [code_quiz] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-18T19:55:35.614+02:00  INFO 9756 --- [code_quiz] [main] dev.codequiz.CodequizApplication         : Starting CodequizApplication using Java 21.0.12 with PID 9756 (C:\IdeaProjects\Project-CodeQuiz\codequiz\backend\target\classes started by bmw73 in C:\IdeaProjects\Project-CodeQuiz\codequiz\backend)
+2026-08-18T19:55:35.617+02:00  INFO 9756 --- [code_quiz] [main] dev.codequiz.CodequizApplication         : The following 1 profile is active: "local"
+2026-08-18T19:55:36.101+02:00  INFO 9756 --- [code_quiz] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-18T19:55:36.124+02:00  INFO 9756 --- [code_quiz] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+2026-08-18T19:55:36.509+02:00  INFO 9756 --- [code_quiz] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-08-18T19:55:36.523+02:00  INFO 9756 --- [code_quiz] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-18T19:55:36.523+02:00  INFO 9756 --- [code_quiz] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18T19:55:36.580+02:00  INFO 9756 --- [code_quiz] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 922 ms
+2026-08-18T19:55:36.704+02:00  INFO 9756 --- [code_quiz] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-18T19:55:36.869+02:00  INFO 9756 --- [code_quiz] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2401856
+2026-08-18T19:55:36.872+02:00  INFO 9756 --- [code_quiz] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-18T19:55:36.992+02:00  INFO 9756 --- [code_quiz] [main] liquibase.database                       : Set default schema name to public
+2026-08-18T19:55:37.887+02:00  INFO 9756 --- [code_quiz] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2026-08-18T19:55:38.085+02:00  INFO 9756 --- [code_quiz] [main] liquibase.ui                             : Database is up to date, no changesets to execute
+2026-08-18T19:55:38.086+02:00  INFO 9756 --- [code_quiz] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2026-08-18T19:55:38.097+02:00  INFO 9756 --- [code_quiz] [main] liquibase.util                           : UPDATE SUMMARY
+2026-08-18T19:55:38.098+02:00  INFO 9756 --- [code_quiz] [main] liquibase.util                           : Run:                          0
+2026-08-18T19:55:38.098+02:00  INFO 9756 --- [code_quiz] [main] liquibase.util                           : Previously run:              21
+2026-08-18T19:55:38.098+02:00  INFO 9756 --- [code_quiz] [main] liquibase.util                           : Filtered out:                 0
+2026-08-18T19:55:38.098+02:00  INFO 9756 --- [code_quiz] [main] liquibase.util                           : -------------------------------
+2026-08-18T19:55:38.098+02:00  INFO 9756 --- [code_quiz] [main] liquibase.util                           : Total change sets:           21
+2026-08-18T19:55:38.099+02:00  INFO 9756 --- [code_quiz] [main] liquibase.util                           : Update summary generated
+2026-08-18T19:55:38.100+02:00  INFO 9756 --- [code_quiz] [main] liquibase.command                        : Command execution complete
+2026-08-18T19:55:38.167+02:00  INFO 9756 --- [code_quiz] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-18T19:55:38.213+02:00  INFO 9756 --- [code_quiz] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-18T19:55:38.583+02:00  INFO 9756 --- [code_quiz] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-18T19:55:38.653+02:00  INFO 9756 --- [code_quiz] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/code_quiz]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.1
+	Default catalog/schema: code_quiz/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-18T19:55:39.007+02:00  INFO 9756 --- [code_quiz] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-18T19:55:39.015+02:00  INFO 9756 --- [code_quiz] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-18T19:55:39.320+02:00  INFO 9756 --- [code_quiz] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-08-18T19:55:39.324+02:00  INFO 9756 --- [code_quiz] [main] dev.codequiz.CodequizApplication         : Started CodequizApplication in 4.186 seconds (process running for 4.58)
+2026-08-18T19:56:41.249+02:00  INFO 9756 --- [code_quiz] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-18T19:56:41.255+02:00  INFO 9756 --- [code_quiz] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-08-18T19:56:41.258+02:00  INFO 9756 --- [code_quiz] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-18T19:56:41.261+02:00  INFO 9756 --- [code_quiz] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-18T19:56:41.264+02:00  INFO 9756 --- [code_quiz] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

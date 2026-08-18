@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="007-create-table-quiz-attempts" author="Sergej Brauer">
+
+        <createTable tableName="quiz_attempts">
+
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"
+                             nullable="false"/>
+            </column>
+
+            <column name="account_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="topic_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="total_questions" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="correct_answers"
+                    type="int"
+                    defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="score"
+                    type="int"
+                    defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="status" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="started_at"
+                    type="timestamp"
+                    defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="finished_at" type="timestamp"/>
+
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>

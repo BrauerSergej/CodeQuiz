@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="021-add-unique-user-answer-selections"
+               author="Sergej Brauer">
+
+        <addUniqueConstraint
+                tableName="user_answer_selections"
+                columnNames="user_answer_id, answer_id"
+                constraintName="uk_user_answer_selections_user_answer_answer"/>
+
+    </changeSet>
+
+</databaseChangeLog>

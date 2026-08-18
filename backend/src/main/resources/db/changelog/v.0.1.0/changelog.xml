@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <include file="/db/changelog/v.0.1.0/001-create-table-account.xml"/>
+    <include file="/db/changelog/v.0.1.0/002-create-table-confirmation-code.xml"/>
+    <include file="/db/changelog/v.0.1.0/003-create-table-categories.xml"/>
+    <include file="/db/changelog/v.0.1.0/004-create-table-topics.xml"/>
+    <include file="/db/changelog/v.0.1.0/005-create-table-questions.xml"/>
+    <include file="/db/changelog/v.0.1.0/006-create-table-answers.xml"/>
+    <include file="/db/changelog/v.0.1.0/007-create-table-quiz-attempts.xml"/>
+    <include file="/db/changelog/v.0.1.0/008-create-table-user-answers.xml"/>
+    <include file="/db/changelog/v.0.1.0/009-create-table-user-answers-selections.xml"/>
+    <include file="/db/changelog/v.0.1.0/010-add-fk-confirmation-code-account.xml"/>
+    <include file="/db/changelog/v.0.1.0/011-add-fk-topics-category.xml"/>
+    <include file="/db/changelog/v.0.1.0/012-add-fk-questions-topic.xml"/>
+    <include file="/db/changelog/v.0.1.0/013-add-fk-answers-question.xml"/>
+    <include file="/db/changelog/v.0.1.0/014-add-fk-quiz-attempts-account.xml"/>
+    <include file="/db/changelog/v.0.1.0/015-add-fk-quiz-attempts-topic.xml"/>
+    <include file="/db/changelog/v.0.1.0/016-add-fk-user-answers-quiz-attempt.xml"/>
+    <include file="/db/changelog/v.0.1.0/017-add-fk-user-answers-question.xml"/>
+    <include file="db/changelog/v.0.1.0/018-add-fk-user-answer-selections-user-answer.xml"/>
+    <include file="/db/changelog/v.0.1.0/019-add-fk-user-answer-selections-answer.xml"/>
+    <include file="/db/changelog/v.0.1.0/020-add-unique-user-answers.xml"/>
+    <include file="/db/changelog/v.0.1.0/021-add-unique-user-answer-selections.xml"/>
+
+
+
+</databaseChangeLog>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="018-add-fk-user-answer-selections-user-answer"
+               author="Sergej Brauer">
+
+        <addForeignKeyConstraint
+                baseTableName="user_answer_selections"
+                baseColumnNames="user_answer_id"
+                constraintName="fk_user_answer_selections_user_answer"
+                referencedTableName="user_answers"
+                referencedColumnNames="id"/>
+
+    </changeSet>
+
+</databaseChangeLog>
