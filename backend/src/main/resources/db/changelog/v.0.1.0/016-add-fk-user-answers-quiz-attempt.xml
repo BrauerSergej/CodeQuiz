@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="016-add-fk-user-answers-quiz-attempt"
+               author="Sergej Brauer">
+
+        <addForeignKeyConstraint
+                baseTableName="user_answers"
+                baseColumnNames="quiz_attempt_id"
+                constraintName="fk_user_answers_quiz_attempt"
+                referencedTableName="quiz_attempts"
+                referencedColumnNames="id"/>
+
+    </changeSet>
+
+</databaseChangeLog>

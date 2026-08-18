@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: code_quiz
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/code_quiz
+    username: postgres
+    password: ${DB_PASSWORD}
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+  jpa:
+    open-in-view: false
+
+server:
+  host: localhost
+  port: 8082
+
+logging:
+  file:
+    name: logs/code-quiz.log
+
+messages:
+  greeting: Hello from local application!
