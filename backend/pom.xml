@@ -128,6 +128,26 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- В этой версии Spring Boot тестовые стартеры разбиты по модулям
+		     (data-jpa-test, webmvc-test и т.д.) и, в отличие от привычного
+		     единого spring-boot-starter-test, не тянут за собой Mockito/AssertJ
+		     транзитивно — добавляем их явно, версии подставит родительский
+		     spring-boot-starter-parent, указывать их самим не нужно. -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

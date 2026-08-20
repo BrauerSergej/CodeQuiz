@@ -10,6 +10,24 @@ spring:
     change-log: classpath:/db/changelog/db.changelog-master.xml
   jpa:
     open-in-view: false
+  # SMTP для отправки кода подтверждения email при регистрации (см.
+  # EmailService). Без реального SMTP-провайдера отправка просто не удастся
+  # при вызове (приложение всё равно стартует — эти свойства не bean-обязательны,
+  # как JWT_ACCESS_SECRET). Для локальной разработки можно завести бесплатный
+  # аккаунт на Mailtrap/Ethereal и подставить их host/port/имя/пароль, или
+  # использовать smtp.gmail.com:587 с паролем приложения (не обычным паролем
+  # аккаунта — Google требует отдельный App Password для SMTP).
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 server:
   host: localhost

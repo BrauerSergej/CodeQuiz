@@ -2,15 +2,23 @@ package dev.codequiz.repository;
 
 import dev.codequiz.domain.Question;
 import dev.codequiz.domain.Topic;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 public interface QuestionRepository extends JpaRepository<Question, Long> {
 
-    // Все активные вопросы по теме — основной запрос для генерации квиза:
-    // сервис берёт этот список и случайным образом выбирает N вопросов для попытки.
+    // List-версия — для внутренней бизнес-логики (QuizAttemptService), где
+    // нужен ВЕСЬ набор активных вопросов темы сразу, чтобы вычесть из него
+    // уже отвеченные и определить следующий вопрос попытки. Пагинация здесь
+    // не подходит — это не то, что видит пользователь как список.
     List<Question> findByTopicAndActiveTrue(Topic topic);
+
+    // Page-версия — для админского списка вопросов (QuestionController),
+    // где как раз нужна порционная выдача, а не всё разом.
+    Page<Question> findByTopicAndActiveTrue(Topic topic, Pageable pageable);
 
     // Количество активных вопросов по теме, без загрузки самих объектов —
     // нужно, чтобы заранее проверить, хватает ли вопросов в теме для запрошенного

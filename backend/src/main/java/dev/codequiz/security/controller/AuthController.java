@@ -4,6 +4,7 @@ import dev.codequiz.domain.User;
 import dev.codequiz.security.dto.AuthResponseDto;
 import dev.codequiz.security.dto.RefreshTokenDto;
 import dev.codequiz.dto.confirmation.ConfirmationCodeVerifyDto;
+import dev.codequiz.dto.confirmation.ResetPasswordDto;
 import dev.codequiz.dto.user.UserDto;
 import dev.codequiz.dto.user.UserLoginDto;
 import dev.codequiz.dto.user.UserRegistrationDto;
@@ -65,6 +66,31 @@ public class AuthController {
                                              @Valid @RequestBody ConfirmationCodeVerifyDto dto) {
         authService.confirmEmail(email, dto);
         // 204 No Content — операция успешна, отдавать в ответе нечего.
+        return ResponseEntity.noContent().build();
+    }
+
+    // Повторная отправка кода подтверждения — на случай, если письмо не
+    // дошло или истёк срок действия предыдущего кода.
+    @PostMapping("/resend-code")
+    public ResponseEntity<Void> resendCode(@RequestParam String email) {
+        authService.resendConfirmationCode(email);
+        return ResponseEntity.noContent().build();
+    }
+
+    // Запрос кода для сброса пароля. Всегда отвечает 204, даже если email
+    // не зарегистрирован — см. пояснение в AuthService.forgotPassword,
+    // почему здесь намеренно нет UserNotFoundException.
+    @PostMapping("/forgot-password")
+    public ResponseEntity<Void> forgotPassword(@RequestParam String email) {
+        authService.forgotPassword(email);
+        return ResponseEntity.noContent().build();
+    }
+
+    // Завершение сброса пароля — код из письма + новый пароль.
+    @PostMapping("/reset-password")
+    public ResponseEntity<Void> resetPassword(@RequestParam String email,
+                                              @Valid @RequestBody ResetPasswordDto dto) {
+        authService.resetPassword(email, dto);
         return ResponseEntity.noContent().build();
     }
 
