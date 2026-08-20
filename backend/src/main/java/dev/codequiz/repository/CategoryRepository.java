@@ -1,9 +1,10 @@
 package dev.codequiz.repository;
 
 import dev.codequiz.domain.Category;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {
@@ -17,8 +18,8 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
     // existsByEmail в UserRepository: дешевле, чем ловить ошибку unique-constraint из БД.
     boolean existsBySlug(String slug);
 
-    // Список только активных категорий, отсортированный по полю displayOrder —
-    // используется для публичного списка категорий на главной странице квиза.
+    // Page, а не List — список активных категорий отдаётся клиенту порциями
+    // (см. Pageable в CategoryController), а не целиком за один запрос.
     // Неактивные (скрытые/архивные) категории сюда не попадают.
-    List<Category> findByActiveTrueOrderByDisplayOrderAsc();
+    Page<Category> findByActiveTrueOrderByDisplayOrderAsc(Pageable pageable);
 }

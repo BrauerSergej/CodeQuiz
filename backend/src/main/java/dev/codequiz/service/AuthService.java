@@ -5,15 +5,18 @@ import dev.codequiz.domain.User;
 import dev.codequiz.domain.enums.AccountRole;
 import dev.codequiz.domain.enums.AccountStatus;
 import dev.codequiz.dto.confirmation.ConfirmationCodeVerifyDto;
+import dev.codequiz.dto.confirmation.ResetPasswordDto;
 import dev.codequiz.dto.user.UserDto;
 import dev.codequiz.dto.user.UserLoginDto;
 import dev.codequiz.dto.user.UserRegistrationDto;
 import dev.codequiz.dto.user.UserSaveDto;
 import dev.codequiz.exception.AccountNotActiveException;
 import dev.codequiz.exception.ConfirmationCodeExpiredException;
+import dev.codequiz.exception.EmailAlreadyConfirmedException;
 import dev.codequiz.exception.EmailAlreadyExistsException;
 import dev.codequiz.exception.InvalidConfirmationCodeException;
 import dev.codequiz.exception.InvalidCredentialsException;
+import dev.codequiz.exception.ResendTooSoonException;
 import dev.codequiz.exception.UsernameAlreadyExistsException;
 import dev.codequiz.exception.UserNotFoundException;
 import dev.codequiz.mapper.UserMapper;
@@ -38,19 +41,27 @@ public class AuthService {
     // в коде метода — чтобы значение было видно сразу и легко менялось в одном месте.
     private static final int CONFIRMATION_CODE_TTL_MINUTES = 15;
 
+    // Минимальный интервал между двумя выдачами кода одному аккаунту —
+    // защита от спама (иначе можно было бы дёргать /auth/resend-code
+    // в цикле и заваливать чужой email письмами).
+    private static final int RESEND_COOLDOWN_SECONDS = 60;
+
     private final UserRepository userRepository;
     private final ConfirmationCodeRepository confirmationCodeRepository;
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
+    private final EmailService emailService;
 
     public AuthService(UserRepository userRepository,
                        ConfirmationCodeRepository confirmationCodeRepository,
                        UserMapper userMapper,
-                       PasswordEncoder passwordEncoder) {
+                       PasswordEncoder passwordEncoder,
+                       EmailService emailService) {
         this.userRepository = userRepository;
         this.confirmationCodeRepository = confirmationCodeRepository;
         this.userMapper = userMapper;
         this.passwordEncoder = passwordEncoder;
+        this.emailService = emailService;
     }
 
     // @Transactional — если что-то упадёт между save(user) и save(confirmationCode)
@@ -102,26 +113,57 @@ public class AuthService {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UserNotFoundException("Пользователь не найден: " + email));
 
-        ConfirmationCode confirmationCode = confirmationCodeRepository
-                .findTopByAccountOrderByCreatedAtDesc(user)
-                .orElseThrow(() -> new InvalidConfirmationCodeException("Код подтверждения не найден"));
-
-        if (confirmationCode.getUsedAt() != null) {
-            throw new InvalidConfirmationCodeException("Код уже был использован");
-        }
-        if (confirmationCode.getExpiresAt().isBefore(LocalDateTime.now())) {
-            throw new ConfirmationCodeExpiredException("Срок действия кода истёк, запросите новый");
-        }
-        // matches(), а не equals() — сравниваем введённый "сырой" код с уже
-        // захешированным значением в БД, тем же способом, что и пароль.
-        if (!passwordEncoder.matches(verifyDto.getCode(), confirmationCode.getCodeHash())) {
-            throw new InvalidConfirmationCodeException("Неверный код подтверждения");
-        }
-
-        confirmationCode.setUsedAt(LocalDateTime.now());
-        confirmationCodeRepository.save(confirmationCode);
+        validateAndConsumeCode(user, verifyDto.getCode());
 
         user.setAccountStatus(AccountStatus.ACTIVE);
+        user.setUpdatedAt(LocalDateTime.now());
+        userRepository.save(user);
+    }
+
+    // Повторная отправка кода подтверждения — на случай, если письмо
+    // потерялось, ушло в спам, или пользователь не успел ввести код за
+    // 15 минут. Работает только для ещё не подтверждённых аккаунтов:
+    // для ACTIVE присылать код смысла нет, пользователю нужно просто войти.
+    @Transactional
+    public void resendConfirmationCode(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException("Пользователь не найден: " + email));
+
+        if (user.getAccountStatus() == AccountStatus.ACTIVE) {
+            throw new EmailAlreadyConfirmedException("Email уже подтверждён, войдите в аккаунт");
+        }
+
+        requireCooldownElapsed(user);
+        issueConfirmationCode(user);
+    }
+
+    // Запрос на сброс пароля. Намеренно НЕ бросает UserNotFoundException,
+    // если email не зарегистрирован — в отличие от resendConfirmationCode
+    // и register(). Разница в чувствительности: раскрытие факта "такой
+    // email уже зарегистрирован" при РЕГИСТРАЦИИ — обычная практика (иначе
+    // нельзя вежливо сообщить пользователю, что делать), а вот раскрытие
+    // того же факта через forgot-password — классический вектор для
+    // перебора чужих email по базе (user enumeration), поэтому здесь ответ
+    // одинаковый независимо от того, существует аккаунт или нет: реальная
+    // отправка кода просто молча не происходит для несуществующего email.
+    @Transactional
+    public void forgotPassword(String email) {
+        userRepository.findByEmail(email).ifPresent(user -> {
+            requireCooldownElapsed(user);
+            issueConfirmationCode(user);
+        });
+    }
+
+    // Email передаётся отдельно от ResetPasswordDto по той же причине,
+    // что и в confirmEmail — пользователь не аутентифицирован.
+    @Transactional
+    public void resetPassword(String email, ResetPasswordDto dto) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException("Пользователь не найден: " + email));
+
+        validateAndConsumeCode(user, dto.getCode());
+
+        user.setPasswordHash(passwordEncoder.encode(dto.getNewPassword()));
         user.setUpdatedAt(LocalDateTime.now());
         userRepository.save(user);
     }
@@ -146,6 +188,40 @@ public class AuthService {
         return user;
     }
 
+    // Общая проверка кода — используется и в confirmEmail (email), и в
+    // resetPassword (пароль), т.к. по сути это один и тот же механизм
+    // "короткоживущий одноразовый код на email", просто с разными
+    // последствиями после успешной проверки (какое поле аккаунта меняется).
+    private void validateAndConsumeCode(User user, String rawCode) {
+        ConfirmationCode confirmationCode = confirmationCodeRepository
+                .findTopByAccountOrderByCreatedAtDesc(user)
+                .orElseThrow(() -> new InvalidConfirmationCodeException("Код не найден, запросите новый"));
+
+        if (confirmationCode.getUsedAt() != null) {
+            throw new InvalidConfirmationCodeException("Код уже был использован");
+        }
+        if (confirmationCode.getExpiresAt().isBefore(LocalDateTime.now())) {
+            throw new ConfirmationCodeExpiredException("Срок действия кода истёк, запросите новый");
+        }
+        // matches(), а не equals() — сравниваем введённый "сырой" код с уже
+        // захешированным значением в БД, тем же способом, что и пароль.
+        if (!passwordEncoder.matches(rawCode, confirmationCode.getCodeHash())) {
+            throw new InvalidConfirmationCodeException("Неверный код");
+        }
+
+        confirmationCode.setUsedAt(LocalDateTime.now());
+        confirmationCodeRepository.save(confirmationCode);
+    }
+
+    private void requireCooldownElapsed(User user) {
+        confirmationCodeRepository.findTopByAccountOrderByCreatedAtDesc(user).ifPresent(lastCode -> {
+            LocalDateTime cooldownEnd = lastCode.getCreatedAt().plusSeconds(RESEND_COOLDOWN_SECONDS);
+            if (cooldownEnd.isAfter(LocalDateTime.now())) {
+                throw new ResendTooSoonException("Код уже был отправлен недавно, подождите немного перед повторным запросом");
+            }
+        });
+    }
+
     private void issueConfirmationCode(User user) {
         String rawCode = generateSixDigitCode();
 
@@ -156,10 +232,11 @@ public class AuthService {
         confirmationCode.setCreatedAt(LocalDateTime.now());
         confirmationCodeRepository.save(confirmationCode);
 
-        // TODO: отправка rawCode пользователю на email. spring-boot-starter-mail
-        // уже подключён в pom.xml, но сам EmailService с реальной отправкой
-        // письма ещё не реализован — это отдельная задача, не относящаяся
-        // к сервисному слою аутентификации как таковому.
+        // rawCode отправляется пользователю на email в открытом виде — это
+        // нормально для кода подтверждения (в отличие от пароля): он
+        // одноразовый, коротко живёт (15 минут) и в БД хранится не сам код,
+        // а его хеш (codeHash выше), так что даже утечка БД не раскрывает код.
+        emailService.sendConfirmationCode(user.getEmail(), rawCode);
     }
 
     // SecureRandom, а не Math.random() — код подтверждения это, по сути,
