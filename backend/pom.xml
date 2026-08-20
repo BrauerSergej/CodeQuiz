@@ -68,6 +68,14 @@
 			<version>${org.mapstruct.version}</version>
 		</dependency>
 
+		<!-- Лёгкая библиотека хеширования паролей (BCryptPasswordEncoder),
+		     БЕЗ полного Spring Security — фильтры, JWT и авторизация
+		     подключаются отдельно на шаге Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-crypto</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>

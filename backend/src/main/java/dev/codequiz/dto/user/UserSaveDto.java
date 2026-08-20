@@ -14,7 +14,7 @@ import dev.codequiz.domain.enums.AccountStatus;
 //
 //   String hash = passwordEncoder.encode(request.getPassword());
 //   UserSaveDto saveDto = new UserSaveDto(request.getUserName(), request.getEmail(),
-//           request.getPhone(), hash, AccountRole.USER, AccountStatus.PENDING);
+//           request.getPhone(), hash, AccountRole.USER, AccountStatus.UNCONFIRMED);
 //   User user = mapToEntity(saveDto);
 //   userRepository.save(user);
 //
